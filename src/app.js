@@ -5,6 +5,7 @@ const request = require("request")
 const forecast = require('./utils/weatherStack')
 const geocode = require('./utils/geocode.js')
 const app = express()
+const port = process.env.PORT || 3000
 const publicDirectoryPath = path.join(__dirname,'../public')
 const viewsPath = path.join(__dirname,'../templates/views')
 const partialsPath = path.join(__dirname,'../templates/partials')
@@ -56,8 +57,8 @@ app.get('/weather',(req,res)=>{
 app.get('*',(req,res)=>{
     res.send('404, Page Not Found')
 })
-app.listen(3000,()=>{
-    console.log('server running at port 3000')
+app.listen(port,()=>{
+    console.log('server running at port' +port)
 })
 
 
